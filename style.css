@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  text-align: center;
+  font-family: Rubik;
+  background: #0e070d;
+  color: #efe1ee;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+
+.counter {
+  background: rgb(206, 161, 200);
+  background: linear-gradient(
+    147deg,
+    rgba(206, 161, 200, 1) 0%,
+    rgba(180, 173, 110, 1) 100%
+  );
+  width: 70%;
+  min-width: 250px;
+  max-width: 750px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #0e070d;
+}
+
+.counter-name {
+    text-align: left;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.count-stack {
+    display: flex;
+    margin: 0 10% 1rem;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.minus, .plus {
+    font-size: 5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0e070d;
+    opacity: 0.6;
+}
+
+.count {
+    font-size: 5rem;
+}
