@@ -1,12 +1,34 @@
 // Initialize counters data from localStorage or empty array if it's not available
 let countersData = JSON.parse(localStorage.getItem('countersData')) || [];
 
+// Add event listener for the "Add Counter" button
+const addButton = document.querySelector(".substitute");
+const countersContainer = document.querySelector("#counters-container");
+countersContainer.innerHTML = '';
+// Loop through countersData array
+for (let i = 0; i < countersData.length; i++) {
+    const newCounters = document.createElement('div');
+    newCounters.classList = 'counter'
+    newCounters.innerHTML = `<div class="counter-name-container">
+                                <p class="counter-name">${countersData[i].title}</p>
+                                <button class="edit">edit</button>
+                            </div>
+                            <div class="count-stack">
+                                <div class="minus">-</div>
+                                <div class="count">${countersData[i].count}</div>
+                                <div class="plus">+</div>
+                            </div>`;
+
+    // Append the newCounters to countersContainer
+    countersContainer.appendChild(newCounters);
+}
+
 function setupCounterEvents(counter, index) {
     const minus = counter.querySelector(".minus");
     const plus = counter.querySelector(".plus");
     const editButton = counter.querySelector(".edit");
     const counterNameElement = counter.querySelector(".counter-name");
-    const counterNameText = counterNameElement.textContent.trim();
+    const counterNameContainer = counter.querySelector(".counter-name-container");
     let count = countersData[index] ? countersData[index].count : 0;
 
     // Update the count display
@@ -32,7 +54,7 @@ function setupCounterEvents(counter, index) {
     editButton.addEventListener("click", () => {
         const inputField = document.createElement("input");
         inputField.setAttribute("type", "text");
-        inputField.setAttribute("value", counterNameText);
+        inputField.setAttribute("value", counterNameElement.textContent);
         
         // Replace counter name with input field
         counterNameElement.textContent = '';
@@ -41,23 +63,21 @@ function setupCounterEvents(counter, index) {
 
         // Change counter name and update countersData array on blur
         inputField.addEventListener("blur", () => {
+            console.log(index)
             const newCounterName = inputField.value.trim();
             counterNameElement.textContent = newCounterName;
             countersData[index].title = newCounterName;
             console.log(countersData[index].title)
-            counterNameElement.appendChild(editButton);
+            counterNameContainer.appendChild(editButton);
             saveCountersData()
         });
+        console.table(countersData)
     });
 }
 
 function saveCountersData() {
     localStorage.setItem('countersData', JSON.stringify(countersData));
 }
-
-// Add event listener for the "Add Counter" button
-const addButton = document.querySelector(".substitute");
-const countersContainer = document.querySelector("#counters-container");
 
 addButton.addEventListener("click", () => {
     const newCounter = document.createElement("div");
