@@ -105,6 +105,7 @@ addButton.addEventListener("click", () => {
 // Set up event listeners for existing counters
 const counters = document.querySelectorAll(".counter");
 counters.forEach((counter, index) => {
-    countersData.push({ title: counter.querySelector(".counter-name").textContent, count: 0 });
+    console.log(`hi im working duh` + counter + index)
+    // countersData.push({ title: counter.querySelector(".counter-name").textContent, count: 0 });
     setupCounterEvents(counter, index);
 });
