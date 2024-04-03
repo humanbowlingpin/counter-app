@@ -63,7 +63,10 @@ addButton.addEventListener("click", () => {
     const newCounter = document.createElement("div");
     newCounter.classList.add("counter");
     newCounter.innerHTML = `
-        <p class="counter-name">Counter ${countersData.length + 1} <button class="edit">edit</button></p>
+        <div class="counter-name-container">
+            <p class="counter-name">Counter ${countersData.length + 1}</p>
+            <button class="edit">edit</button>
+        </div>
         <div class="count-stack">
             <div class="minus">-</div>
             <div class="count">0</div>
