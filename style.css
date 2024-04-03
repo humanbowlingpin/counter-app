@@ -9,7 +9,7 @@ body {
   text-align: center;
   font-family: skateboarder;
   background-color: var(--main-dark);
-  background-image: url(https://t3.ftcdn.net/jpg/03/78/39/96/360_F_378399636_XhwGjrsSAApWqOVTgvvMOfpbjHGyDZwa.png);
+  background-image: url(grunge_texture.png);
   color: var(--text-light);
   padding:0;
   margin: 0;
