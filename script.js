@@ -116,3 +116,18 @@ addButton.addEventListener("click", () => {
 });
 
 // Set up event listeners for existing counters
+
+const infoButton = document.querySelector('.info');
+const popup = document.querySelector('.popup');
+const overlay = document.querySelector('.overlay');
+infoButton.addEventListener('click', () => {
+    popup.classList.add('active');
+    overlay.classList.add('active');
+    infoButton.classList.add('hide');
+})
+
+function closePopup(){
+    popup.classList.remove('active')
+    overlay.classList.remove('active');
+    infoButton.classList.remove('hide');
+}
